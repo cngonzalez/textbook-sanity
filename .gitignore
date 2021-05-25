@@ -48,3 +48,4 @@ template/public/studio
 
 dist
 
+*.woff

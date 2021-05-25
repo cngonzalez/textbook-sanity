@@ -1,17 +1,51 @@
 @font-face {
-  font-family: 'Noto Sans JP';
+  font-family: 'Heinemann School';
   font-style: normal;
-  font-weight: 100;
-  src: url('./Noto_Sans_JP/NotoSansJP-REgular.otf')
+  src: url('./HeinemannSchool/HeinemannSchool.woff')
 }
 
+@font-face {
+  font-family: 'Heinemann School';
+  font-weight: 800;
+  src: url('./HeinemannSchool/HeinemannSchool-Black.woff')
+}
+
+@font-face {
+  font-family: 'Heinemann School';
+  font-style: bold;
+  src: url('./HeinemannSchool/HeinemannSchool-Bold.woff')
+}
+
+@font-face {
+  font-family: 'Heinemann School';
+  font-style: italic;
+  src: url('./HeinemannSchool/HeinemannSchool-Italic.woff')
+}
 body {
-  font: 1.7rem 'Noto Sans JP', Helvetica Neue, Helvetica, Arial, sans serif;
+  font: 1.7rem 'Heinemann School', Helvetica Neue, Helvetica, Arial, sans serif;
   height: 100%;
   width: 100%;
   background-color: white;
   margin: 0;
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: 0; */
+}
+
+header {
+   position: absolute;
+   color: white;
+   padding: 0 2rem;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 999;
+   height: 85px;
+   border-bottom: solid lightgrey 20px;
+}
+
+.title {
+  font-style: normal;
+  color: #244b86;
+}
+
+div.article-body {
+  margin-top: 150px;
 }

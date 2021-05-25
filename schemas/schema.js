@@ -4,6 +4,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import textbookBlockContent from './blockContent/textbookBlockContent'
 
 import exercise from './objects/exercise'
+import modelBox from './objects/modelBox'
+
 import cell from './tables/cell'
 import row from './tables/row'
 import table from './tables/table'
@@ -27,6 +29,7 @@ export default createSchema({
     row,
     table,
     exercise,
+    modelBox,
     activity,
     unitSection,
     bridgeTopic,

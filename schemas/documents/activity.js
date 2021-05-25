@@ -8,8 +8,17 @@ export default {
         {
             name: 'unitSection',
             title: 'Unit Section',
-            type: 'reference',
-            to: [{type: 'unitSection'}]
+            type: 'string',
+            options: {
+              list: [
+                'Introduction',
+                'Unit Theme',
+                'Weekly Launch',
+                'Reading Workshop',
+                'Writing Workshop',
+                'Reading-Writing Bridge'
+              ]
+            }
         },
         {
             name: 'focus',
@@ -40,8 +49,7 @@ export default {
         {
             name: 'digitalContent',
             title: 'Digital Content',
-            type: 'array',
-            of: [{type: 'block'}]
+            type: 'textbookBlockContent'
         },
         {
             name: 'digitalExercises',
@@ -53,4 +61,19 @@ export default {
             ]
         },
     ],
+    preview: {
+      select: {
+        title: 'title',
+        unitSection: 'unitSection',
+        focus: 'focus'
+      },
+      prepare: ({
+        title,
+        unitSection,
+        focus
+        }) => ({
+          title: `${title} (${unitSection})`,
+          subtitle: focus
+        })
+    }
 }

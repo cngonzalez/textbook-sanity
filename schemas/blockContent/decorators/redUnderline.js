@@ -1,7 +1,7 @@
 import React from 'react'
 
 const underlineIcon = () => (
-    <span style={{ fontWeight: 'bold' }}>-</span>
+    <span style={{ fontWeight: 'bold', color: 'red' }}>__</span>
   )
 const underlineRender = props => (
     <span style={

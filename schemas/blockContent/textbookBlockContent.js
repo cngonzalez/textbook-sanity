@@ -9,15 +9,28 @@ export default {
     of: [{type: 'block',
           styles: [],
           marks: {
-          decorators: [
-            { title: 'Strong', value: 'strong' },
-            { title: 'Emphasis', value: 'em' },
-            ...Object.values(decorators),
+            decorators: [
+              { title: 'Strong', value: 'strong' },
+              { title: 'Emphasis', value: 'em' },
+              ...Object.values(decorators),
+            ],
+            annotations: Object.values(annotations)
+          },
+          of: [
+            {
+              type: 'object',
+              name: 'blank',
+              fields: [{name: 'disabled', type: 'boolean'}],
+              preview: {
+                prepare: () =>  ({title: 'blank'})
+              }
+            }
           ],
-              annotations: Object.values(annotations)
-          }
         },
         ...Object.values(objects),
-        {type: 'table'}
+        {type: 'table'},
+        {type: 'file'},
+        {type: 'modelBox'},
+
     ]
 }

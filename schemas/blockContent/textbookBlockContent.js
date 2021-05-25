@@ -7,10 +7,17 @@ export default {
     title: 'Textbook Block Content',
     type: 'array',
     of: [{type: 'block',
+          styles: [],
           marks: {
-              decorators: Object.values(decorators),
+          decorators: [
+            { title: 'Strong', value: 'strong' },
+            { title: 'Emphasis', value: 'em' },
+            ...Object.values(decorators),
+          ],
               annotations: Object.values(annotations)
           }
         },
-        ...Object.values(objects)]
+        ...Object.values(objects),
+        {type: 'table'}
+    ]
 }

@@ -2,7 +2,7 @@ import RowsInput from 'part:@ssfbank/sanity-plugin-byo-table/rows-input';
 
 export default {
     name: 'table',
-    title: 'table',
+    title: 'Table',
     type: 'object',
     fields: [
         {
@@ -22,9 +22,4 @@ export default {
             inputComponent: RowsInput
           }
         ],
-    preview: {
-        select: {
-        title: 'title'
-        }
-    }
 }

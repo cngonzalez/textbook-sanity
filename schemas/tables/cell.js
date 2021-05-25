@@ -6,15 +6,36 @@ export default {
         {
             name: 'content',
             title: 'Cell content',
-            type: 'array',
-            of: [{ type: 'textbookBlockContent' }]
+            type: 'string' 
+        },
+        {
+            name: 'style',
+            title: 'Style',
+            type: 'string',
+            options: {
+              list: [
+                {title: 'None', value: ''},
+                {title: 'Bold', value: 'strong'},
+                {title: 'Italic', value: 'em'},
+                {title: 'Answer Text', value: 'answerText'},
+                {title: 'Double Underline', value: 'doubleUnderline'},
+                {title: 'Filled Blank', value: 'filledBlank'},
+                {title: 'Highlight', value: 'highlight'},
+                {title: 'Red Underline', value: 'redUnderline'},
+
+              ]
+            }
         },
     ],
-    //TODO
-    // preview: {
-    //     select: {
-    //         title: 'value',
-    //         subtitle: 'anotherValue'
-    //     }
-    // }
-};
+     preview: {
+         select: {
+             title: 'content',
+         }
+      },
+      prepare(selection) {
+        const { title } = selection
+        return {
+          title: content
+        }
+      }
+}

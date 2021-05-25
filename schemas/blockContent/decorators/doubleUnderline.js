@@ -1,11 +1,11 @@
-
+import React from 'react'
 import { FaGripLines } from 'react-icons/fa'
 
 const doubleUnderlineRender = props => (
     <span style={
         { textDecoration: 'underline',
           textDecorationStyle: 'double',
-          textDecorationColor: 'red'
+          textDecorationColor: '#d4609c'
          }}>{props.children}</span>
   )
   

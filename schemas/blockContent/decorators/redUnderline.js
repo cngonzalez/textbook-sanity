@@ -1,3 +1,4 @@
+import React from 'react'
 
 const underlineIcon = () => (
     <span style={{ fontWeight: 'bold' }}>-</span>
@@ -5,7 +6,7 @@ const underlineIcon = () => (
 const underlineRender = props => (
     <span style={
         { textDecoration: 'underline',
-          color: red }}>{props.children}</span>
+          color: '#d4609c' }}>{props.children}</span>
   )
   
 

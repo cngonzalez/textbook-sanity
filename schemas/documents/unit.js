@@ -5,14 +5,49 @@ export default {
     fields: [
         {
             name: 'name',
-            title: 'name',
+            title: 'Name',
             type: 'string',
         },
         {
-            name: 'weeks',
-            title: 'Weeks',
+            name: 'essentialQuestion',
+            title: 'Essential Question',
+            type: 'string',
+        },
+        {
+            name: 'learningGoals',
+            title: 'Learning Goals',
             type: 'array',
-            of: [{ type: 'week' }],
+            of: [
+              { 
+                type: 'object',
+                fields: [
+                  {
+                    name: 'section',
+                    type: 'reference',
+                    to: [{ type: 'unitSection'}]
+                  },
+                  {
+                      name: 'goal',
+                      title: 'Goal',
+                      type: 'string',
+                  },
+                ]
+              }
+            ]
+        },
+        {
+            name: 'introductionActivity',
+            title: 'Introduction Activity',
+            type: 'reference',
+            to: [{ type: 'activity' }]
+        },
+        {
+            name: 'weeks',
+            title: 'Week',
+            type: 'array',
+            of: [
+              {type: 'reference', to: [{type: 'week'}]}
+            ]
         },
     ],
 }

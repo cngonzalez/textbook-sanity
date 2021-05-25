@@ -1,14 +1,15 @@
 import textbookBlockContent from '../blockContent/textbookBlockContent'
+
 export default {
     name: 'activity',
     title: 'Activity',
     type: 'document',
     fields: [
         {
-            name: 'bookSection',
-            title: 'Book Section',
+            name: 'unitSection',
+            title: 'Unit Section',
             type: 'reference',
-            to: [{type: 'bookSection'}]
+            to: [{type: 'unitSection'}]
         },
         {
             name: 'focus',
@@ -21,14 +22,13 @@ export default {
             type: 'string',
         },
         {
-            name: 'content',
-            title: 'Content',
-            type: 'array',
-            of: [{type: 'textbookBlockContent'}]
+            name: 'printContent',
+            title: 'Print Content',
+            type: 'textbookBlockContent'
         },
         {
-            name: 'exercises',
-            title: 'Exercises',
+            name: 'printExercises',
+            title: 'Print Exercises',
             type: 'array',
             of: [{type: 'exercise'}]
         },
@@ -36,6 +36,21 @@ export default {
             name: 'characterBlurb',
             title: 'Character Blurb',
             type: 'string'
+        },
+        {
+            name: 'digitalContent',
+            title: 'Digital Content',
+            type: 'array',
+            of: [{type: 'block'}]
+        },
+        {
+            name: 'digitalExercises',
+            title: 'Digital Exercises',
+            type: 'array',
+            of: [
+              {type: 'exercise'},
+              {type: 'file'}
+            ]
         },
     ],
 }

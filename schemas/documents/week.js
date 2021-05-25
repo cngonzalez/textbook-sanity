@@ -4,13 +4,19 @@ export default {
     type: 'document',
     fields: [
         {
+            name: 'unit',
+            title: 'Unit',
+            type: 'reference',
+            to: [{ type: 'unit' }],
+        },
+        {
             name: 'number',
             title: 'Number',
             type: 'number',
         },
         {
-            name: 'name',
-            title: 'title',
+            name: 'content',
+            title: 'Content',
             type: 'array',
             of: [
                 { type: 'reference',

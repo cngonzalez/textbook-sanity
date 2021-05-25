@@ -4,11 +4,13 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import textbookBlockContent from './blockContent/textbookBlockContent'
 
 import exercise from './objects/exercise'
+import cell from './tables/cell'
+import row from './tables/row'
+import table from './tables/table'
 
 import activity from './documents/activity'
-import bookSection from './documents/bookSection'
+import unitSection from './documents/unitSection'
 import bridgeTopic from './documents/bridgeTopic'
-import learningGoal from './documents/learningGoal'
 import unit from './documents/unit'
 import week from './documents/week'
 
@@ -21,11 +23,13 @@ export default createSchema({
   types: schemaTypes.concat([
     /* Your types here! */
     textbookBlockContent,
+    cell,
+    row,
+    table,
     exercise,
     activity,
-    bookSection,
+    unitSection,
     bridgeTopic,
-    learningGoal,
     unit,
     week,
   ]),

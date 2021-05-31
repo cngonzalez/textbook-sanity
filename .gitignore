@@ -49,3 +49,9 @@ template/public/studio
 dist
 
 *.woff
+*.eot
+*.ttf
+
+*.zip
+*.xhtml
+.env

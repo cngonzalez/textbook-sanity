@@ -36,12 +36,6 @@ export default {
             ]
         },
         {
-            name: 'introductionActivity',
-            title: 'Introduction Activity',
-            type: 'reference',
-            to: [{ type: 'activity' }]
-        },
-        {
             name: 'weeks',
             title: 'Week',
             type: 'array',

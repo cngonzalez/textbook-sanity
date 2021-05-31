@@ -31,6 +31,11 @@ export default {
             type: 'string',
         },
         {
+            name: 'learningGoal',
+            title: 'Learning Goal',
+            type: 'string',
+        },
+        {
             name: 'printContent',
             title: 'Print Content',
             type: 'textbookBlockContent'
@@ -40,11 +45,6 @@ export default {
             title: 'Print Exercises',
             type: 'array',
             of: [{type: 'exercise'}]
-        },
-        {
-            name: 'characterBlurb',
-            title: 'Character Blurb',
-            type: 'string'
         },
         {
             name: 'digitalContent',
@@ -59,6 +59,11 @@ export default {
               {type: 'exercise'},
               {type: 'file'}
             ]
+        },
+        {
+            name: 'characterBlurb',
+            title: 'Character Blurb',
+            type: 'string'
         },
     ],
     preview: {

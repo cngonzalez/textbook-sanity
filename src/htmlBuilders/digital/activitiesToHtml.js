@@ -1,6 +1,18 @@
 const blocksToHtml = require('@sanity/block-content-to-html')
 const h = blocksToHtml.h
 
+export const getSectionColor = (section) => {
+  const colorMap = {
+    'Introduction': '#244b86',
+    'Reading Workshop': '#387f47',
+    'Reading-Writing Bridge': '#244b86',
+    'Writing Workshop': '#633b7e',
+    'Weekly Launch': '#387f47',
+    'Unit Theme': '#244b86',
+  }
+  return colorMap[section]
+}
+
 const serializers = {
   types: {
     modelBox: (props) => {
@@ -19,24 +31,13 @@ const serializers = {
   }
 }
 
-const getSectionColor = (section) => {
-  const colorMap = {
-    'Introduction': '#244b86',
-    'Reading Workshop': '#387f47',
-    'Reading-Writing Bridge': '#244b86',
-    'Writing Workshop': '#633b7e',
-    'Weekly Launch': '#387f47',
-    'Unit Theme': '#244b86',
-  }
-  return colorMap[section]
-}
 
 export const createHTMLString = (doc) => {
 return `
       <head>
       </head>
         <body>
-          <header style="background-color: ${getSectionColor(doc.unitSection)}">
+          <header style="background-color: ${getSectionColor(doc.unitSection)};">
             <h5>
               <strong>${doc.unitSection}</strong>${doc.focus ? (': ' + doc.focus) :  ""}
             </h5>

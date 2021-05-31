@@ -12,7 +12,17 @@ export default {
         {
             name: 'number',
             title: 'Number',
-            type: 'number',
+            type: 'string',
+            options: {
+              list: [
+                'Introduction',
+                '1',
+                '2',
+                '3',
+                '4',
+                '5'
+              ]
+            }
         },
         {
             name: 'content',
@@ -26,4 +36,16 @@ export default {
             ],
         },
     ],
+    preview: {
+      select: {
+        unit: 'unit.name',
+        week:  'number'
+      },
+      prepare: ({
+        unit,
+        week
+        }) => ({
+          title: `${unit ?? ""}: ${(week == 'Introduction') ? week : ('Week ' + week)}`
+        })
+    }
 }

@@ -16,7 +16,6 @@ export const ExportToFiles = ({
   const formattedActivity = {draft, displayed: published}
   const activityComponent = <ActivityPreview document={formattedActivity} />
   const html = renderToString(activityComponent)
-  console.log(JSON.stringify(html))
 
   return {
     label: 'Export To Files',

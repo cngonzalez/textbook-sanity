@@ -6,6 +6,7 @@ const createZipFile = async (req, res) => {
 
   const { html, id } = JSON.parse(req.body)
 
+  //TODO: add proper XHTML surrounds to the HTML string
   const htmlBuffer = Buffer.from(html, 'utf-8')
   const archive = archiver('zip', {
     zlib: { level: 9 } 
@@ -15,7 +16,7 @@ const createZipFile = async (req, res) => {
   //     incrementAmount: (100 * 1024)
   // });
 
-  const output = fs.createWriteStream(__dirname + '/example.zip');
+  const output = fs.createWriteStream(__dirname + `${id}/.zip`);
 
   output.on('close', function() {
     console.log(archive.pointer() + ' total bytes');

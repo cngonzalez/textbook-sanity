@@ -1,12 +1,14 @@
 import S from '@sanity/desk-tool/structure-builder'
 import { ActivityPreview } from './previews/ActivityPreview'
+import { ActivityPreviewPDF } from './previews/ActivityPreviewPDF'
 import { GiBookshelf, GiWhiteBook, GiFountainPen, GiScrollUnfurled } from 'react-icons/gi'
 
 export const getDefaultDocumentNode = ({ schemaType }) => {
   if (schemaType === 'activity') {
     return S.document().views([
       S.view.form().icon(),
-      S.view.component(ActivityPreview).title('HTML Preview')
+      S.view.component(ActivityPreview).title('HTML Preview'),
+      S.view.component(ActivityPreviewPDF).title('PDF Preview')
     ])
   }
   return S.document().views([S.view.form()])

@@ -26,6 +26,7 @@
     "@ssfbank/sanity-plugin-byo-table": "^2.3.1",
     "archiver": "^5.3.0",
     "fs": "^0.0.1-security",
+    "prince": "^1.8.6",
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",

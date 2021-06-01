@@ -54,4 +54,7 @@ dist
 
 *.zip
 *.xhtml
+*.html
 .env
+*.pdf
+

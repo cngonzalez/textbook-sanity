@@ -4,9 +4,9 @@ const h = blocksToHtml.h
 export const getSectionColor = (section) => {
   const colorMap = {
     'Introduction': ['#244b86', '#3274a3', '#e5f2f3'],
-    'Reading Workshop': '#387f47',
+    'Reading Workshop': ['#387f47'],
     'Reading-Writing Bridge': ['#244b86', '#3274a3', '#e5f2f3'],
-    'Writing Workshop': '#633b7e',
+    'Writing Workshop': ['#633b7e','#543667', '#cbb3bd'],
     'Weekly Launch': '#387f47',
     'Unit Theme': ['#244b86', '#3274a3', '#e5f2f3']
   }
@@ -23,7 +23,9 @@ const serializers = {
             'background-color': '#f8fbfd',
             border: "solid 3px #244b86",
             padding: '10px',
-            'border-radius': '5px'
+            'border-radius': '5px',
+            margin: '50px 30px'
+
           },
             innerHTML: content
           })
@@ -54,8 +56,8 @@ export const createHTMLString = (doc) => {
             </svg>
           </header>
           <div style="padding:3rem; background-color: ${backgroundColor};">
-            <div style="font-size: 22px;
-                        line-height: 30px;
+            <div style="font-size: 18px;
+                        line-height: 20px;
                         padding: 2rem;
                         background-color: white;
                         border: solid ${mainColor};

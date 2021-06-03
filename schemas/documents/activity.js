@@ -49,7 +49,7 @@ export default {
         {
             name: 'digitalContent',
             title: 'Digital Content',
-            type: 'textbookBlockContent'
+            type: 'digitalBlockContent'
         },
         {
             name: 'digitalExercises',
@@ -57,7 +57,9 @@ export default {
             type: 'array',
             of: [
               {type: 'exercise'},
-              {type: 'file'}
+              {type: 'interactiveMap'},
+              {type: 'file'},
+
             ]
         },
         {

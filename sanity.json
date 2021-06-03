@@ -13,7 +13,8 @@
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
-    "@ssfbank/sanity-plugin-byo-table"
+    "@ssfbank/sanity-plugin-byo-table",
+    "@sanity/google-maps-input"
   ],
   "env": {
     "development": {

@@ -2,9 +2,11 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import textbookBlockContent from './blockContent/textbookBlockContent'
+import digitalBlockContent from './blockContent/digitalBlockContent'
 
 import exercise from './objects/exercise'
 import modelBox from './objects/modelBox'
+import interactiveMap from './objects/interactiveMap'
 
 import cell from './tables/cell'
 import row from './tables/row'
@@ -25,11 +27,13 @@ export default createSchema({
   types: schemaTypes.concat([
     /* Your types here! */
     textbookBlockContent,
+    digitalBlockContent,
     cell,
     row,
     table,
     exercise,
     modelBox,
+    interactiveMap,
     activity,
     unitSection,
     bridgeTopic,

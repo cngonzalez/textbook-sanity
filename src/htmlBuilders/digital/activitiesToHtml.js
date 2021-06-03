@@ -39,7 +39,7 @@ return `
         <body>
           <header style="background-color: ${getSectionColor(doc.unitSection)};">
             <h5>
-              <strong>${doc.unitSection}</strong>${doc.focus ? (': ' + doc.focus) :  ""}
+              <strong>${doc ? doc.unitSection : ""}</strong>${(doc && doc.focus) ? (': ' + doc.focus) :  ""}
             </h5>
           </header>
           <div style="margin-top: 150px; padding: 0 3rem">
@@ -47,7 +47,7 @@ return `
               ${doc.title}
             </h5>
             <div style="font-size: 18px; line-height: 22px; font-weight: normal;">
-              ${blocksToHtml({blocks: (doc.digitalContent ?? []), serializers })}
+              ${blocksToHtml({blocks: ((doc && doc.digitalContent) ?? []), serializers })}
             </div>
           </div>
         </body>

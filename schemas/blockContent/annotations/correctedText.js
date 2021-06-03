@@ -1,11 +1,11 @@
-import { FaStrikeThrough } from 'react-icons/fa'
+import { BsTypeStrikethrough } from 'react-icons/bs'
 
 export default {
     name: 'correctedText',
     title: 'Corrected Text',
     type: 'object',
     blockEditor: {
-        icon: FaStrikeThrough
+        icon: BsTypeStrikethrough
     },
     fields: [
         {

@@ -79,7 +79,7 @@ export default {
         unitSection,
         focus
         }) => ({
-          title: `${title} (${unitSection})`,
+          title: `${title}`,
           subtitle: focus
         })
     }

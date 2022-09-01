@@ -38,7 +38,7 @@ export const createHTMLString = (doc) => {
   const [mainColor, accentColor, backgroundColor] = getSectionColor(doc.unitSection) 
   return `
       <head>
-        <link rel="stylesheet" type="text/css" href="http://localhost:3000/static/print.css" />
+        <link rel="stylesheet" type="text/css" href="http://localhost:4000/static/print.css" />
       </head>
         <body style="background-color: ${backgroundColor};">
           <header style="background-color: ${mainColor}; border: none; position: relative; height: 200px; padding:0;">

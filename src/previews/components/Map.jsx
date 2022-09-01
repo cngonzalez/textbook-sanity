@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker'
+import config from 'config:@sanity/google-maps-input'
 
 function toPlainText(blocks = []) {
   return blocks
@@ -63,7 +64,7 @@ class Map extends Component {
       // Important! Always set the container height explicitly
       <div style={{ height: '400px', width: '100%' }}>
         <GoogleMapReact
-          bootstrapURLKeys
+          bootstrapURLKeys={{key: config.apiKey}}
           defaultCenter={center}
           defaultZoom={zoom}
           yesIWantToUseGoogleMapReactApiInternals

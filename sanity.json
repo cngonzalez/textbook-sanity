@@ -21,6 +21,11 @@
       "plugins": [
         "@sanity/vision"
       ]
+    },
+    "production": {
+      "plugins": [
+        "@sanity/vision"
+      ]
     }
   },
   "parts": [

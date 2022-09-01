@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { useDocumentOperation, useEditState } from '@sanity/react-hooks'
+import React from 'react'
+import { useDocumentOperation } from '@sanity/react-hooks'
 import { ActivityPreviewPDF } from '../previews/ActivityPreviewPDF'
 import { renderToString } from 'react-dom/server'
+import { Page, View, Text, Document, PDFDownloadLink, StyleSheet } from '@react-pdf/renderer'
+import  { createHTMLString } from '../htmlBuilders/print/activitiesToHtml'
+
 
 export const ExportToPDF = ({
   id,
@@ -10,48 +13,41 @@ export const ExportToPDF = ({
   published,
   onComplete}) => {
   
-  const { patch, publish } = useDocumentOperation(id, type)
+  const { publish } = useDocumentOperation(id, type)
   const [dialogOpen, setDialogOpen] = React.useState(false)
+  const ActivityPDF = (
+    <Document>
+      <Page>
+        <View>
+          <Text>
+            <body dangerouslySetInnerHTML={{__html: createHTMLString(draft ?? published)}} /> 
+          </Text>
+        </View>
+      </Page>
+    </Document>
+  )
 
   return {
-    label: 'Export To PDF',
+    label: 'Generate PDF',
     icon: () =>  '📃',
     onHandle: async () => {
-      const formattedActivity = {draft, displayed: published}
-      const activityComponent = <ActivityPreviewPDF document={formattedActivity} />
-      const html = renderToString(activityComponent)
-      const htmlZip = await fetch('/api/createPDF', {
-        method: 'POST',
-        body: JSON.stringify({html, id})
-        })
-        .then(res => new Response(res.body))
-        .then(stream => stream.blob())
-        .then(blob => {
-          const url = window.URL.createObjectURL(blob)
-          const link = document.createElement('a');
-          link.href = url;
-          link.setAttribute(
-            'download',
-            `${id}.pdf`,
-          );
-          document.body.appendChild(link);
 
-          // Start download
-          link.click();
-
-          // Clean up and remove the link
-          link.parentNode.removeChild(link);
-
-        })
       if (draft) {
         await publish.execute()
       }
       setDialogOpen(true)
     },
     dialog: dialogOpen && {
-      type: 'popover',
+      //using a modal because it's the easiest way to get a download button
+      type: 'modal',
       onClose: onComplete,
-      content: "Done!"
+      content: (
+        <>
+          <PDFDownloadLink document={ActivityPDF} fileName="activity.pdf">
+            {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download now!')}
+          </PDFDownloadLink>
+        </>
+      )
     }
   }
 }

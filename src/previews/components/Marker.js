@@ -20,14 +20,16 @@ const Wrapper = styled.div`
   }
 `;
 
-const Marker = ({ text, onClick }) => (
-  <div>
-    <Wrapper
-      data-tip={text}
-    />
-    <ReactTooltip multiline/>
-  </div>
-);
+function Marker({ text, onClick }) {
+  return (
+    <div>
+      <Wrapper
+        data-tip={text}
+      />
+      <ReactTooltip multiline />
+    </div>
+  );
+}
 
 Marker.defaultProps = {
   onClick: null,

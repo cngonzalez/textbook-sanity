@@ -8,10 +8,6 @@ import exercise from './objects/exercise'
 import modelBox from './objects/modelBox'
 import interactiveMap from './objects/interactiveMap'
 
-import cell from './tables/cell'
-import row from './tables/row'
-import table from './tables/table'
-
 import activity from './documents/activity'
 import unitSection from './documents/unitSection'
 import bridgeTopic from './documents/bridgeTopic'
@@ -28,9 +24,6 @@ export default createSchema({
     /* Your types here! */
     textbookBlockContent,
     digitalBlockContent,
-    cell,
-    row,
-    table,
     exercise,
     modelBox,
     interactiveMap,

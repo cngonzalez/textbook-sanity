@@ -1,57 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { useDocumentOperation, useEditState } from '@sanity/react-hooks'
-import { ActivityPreviewPDF } from '../previews/ActivityPreviewPDF'
-import { renderToString } from 'react-dom/server'
+import React from 'react';
+import { useDocumentOperation } from '@sanity/react-hooks';
+import { PDFDownloadLink } from '@react-pdf/renderer';
+import ActivityToReactPDF from '../documentBuilders/print/activityToReactPDF';
 
 export const ExportToPDF = ({
   id,
   type,
   draft,
   published,
-  onComplete}) => {
-  
-  const { patch, publish } = useDocumentOperation(id, type)
-  const [dialogOpen, setDialogOpen] = React.useState(false)
+  onComplete,
+}) => {
+  const { publish } = useDocumentOperation(id, type);
+  const [dialogOpen, setDialogOpen] = React.useState(false);
+  const doc = draft || published;
+  const ActivityPDF = <ActivityToReactPDF doc={doc} />;
 
   return {
-    label: 'Export To PDF',
-    icon: () =>  '📃',
+    label: 'Generate PDF',
+    icon: () => '📃',
     onHandle: async () => {
-      const formattedActivity = {draft, displayed: published}
-      const activityComponent = <ActivityPreviewPDF document={formattedActivity} />
-      const html = renderToString(activityComponent)
-      const htmlZip = await fetch('/api/createPDF', {
-        method: 'POST',
-        body: JSON.stringify({html, id})
-        })
-        .then(res => new Response(res.body))
-        .then(stream => stream.blob())
-        .then(blob => {
-          const url = window.URL.createObjectURL(blob)
-          const link = document.createElement('a');
-          link.href = url;
-          link.setAttribute(
-            'download',
-            `${id}.pdf`,
-          );
-          document.body.appendChild(link);
-
-          // Start download
-          link.click();
-
-          // Clean up and remove the link
-          link.parentNode.removeChild(link);
-
-        })
       if (draft) {
-        await publish.execute()
+        await publish.execute();
       }
-      setDialogOpen(true)
+      setDialogOpen(true);
     },
     dialog: dialogOpen && {
-      type: 'popover',
+      // using a modal because it's the easiest way to get a download button
+      type: 'modal',
       onClose: onComplete,
-      content: "Done!"
-    }
-  }
-}
+      content: (
+        <PDFDownloadLink document={ActivityPDF} fileName="activity.pdf">
+          {({
+            blob, url, loading, error,
+          }) => (loading ? 'Loading document...' : 'Download now!')}
+        </PDFDownloadLink>
+      ),
+    },
+  };
+};

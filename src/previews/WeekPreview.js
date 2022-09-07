@@ -1,16 +1,14 @@
-import React from 'react'
+import React from 'react';
 
 class WeekPreview extends React.PureComponent {
-
-  //assign to this.props.document?
-  state = {}
+  // assign to this.props.document?
+  state = {};
 
   componentDidMount() {
-    this.fetchData()
-  } 
-  
-  fetchData() {
-    
+    this.fetchData();
   }
 
+  fetchData() {
+
+  }
 }

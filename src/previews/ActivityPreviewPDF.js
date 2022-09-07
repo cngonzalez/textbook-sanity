@@ -1,15 +1,11 @@
-import React from 'react' 
-import './css/default.css'
-import  { createHTMLString } from '../htmlBuilders/print/activitiesToHtml'
+import React from 'react';
+import { PDFViewer } from '@react-pdf/renderer';
+import ActivityToReactPDF from '../documentBuilders/print/activityToReactPDF';
 
-//expel to PDF with diff background
-//for reading activity, upload "blank" versions with page breaks
-//expel whole deal as unit
-
-export const ActivityPreviewPDF = ({ document }) => {
-  const toPresent = document.draft ?? document.displayed
+export function ActivityPreviewPDF({ document }) {
   return (
-    <body dangerouslySetInnerHTML={{__html: createHTMLString(toPresent)}} /> 
-    )
-
+    <PDFViewer width="100%" height="100%">
+      <ActivityToReactPDF doc={document.displayed} />
+    </PDFViewer>
+  );
 }

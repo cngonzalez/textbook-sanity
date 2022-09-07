@@ -1,6 +1,3 @@
-import * as annotations from './annotations'
-import * as objects from './objects'
-
 export default {
     name: 'digitalBlockContent',
     title: 'Digital Block Content',
@@ -24,8 +21,6 @@ export default {
             }
           ],
         },
-        ...Object.values(objects),
-        {type: 'table'},
         {type: 'file'},
         {type: 'modelBox'},
 

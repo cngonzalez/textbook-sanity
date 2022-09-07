@@ -1,6 +1,5 @@
 import * as annotations from './annotations'
 import * as decorators from './decorators'
-import * as objects from './objects'
 
 export default {
     name: 'textbookBlockContent',
@@ -27,8 +26,6 @@ export default {
             }
           ],
         },
-        ...Object.values(objects),
-        {type: 'table'},
         {type: 'modelBox'},
 
     ]

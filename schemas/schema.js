@@ -1,18 +1,18 @@
-import createSchema from 'part:@sanity/base/schema-creator'
-import schemaTypes from 'all:part:@sanity/base/schema-type'
+import createSchema from 'part:@sanity/base/schema-creator';
+import schemaTypes from 'all:part:@sanity/base/schema-type';
 
-import textbookBlockContent from './blockContent/textbookBlockContent'
-import digitalBlockContent from './blockContent/digitalBlockContent'
+import textbookBlockContent from './blockContent/textbookBlockContent';
+import digitalBlockContent from './blockContent/digitalBlockContent';
 
-import exercise from './objects/exercise'
-import modelBox from './objects/modelBox'
-import interactiveMap from './objects/interactiveMap'
+import exercise from './objects/exercise';
+import modelBox from './objects/modelBox';
+import interactiveMap from './objects/interactiveMap';
 
-import activity from './documents/activity'
-import unitSection from './documents/unitSection'
-import bridgeTopic from './documents/bridgeTopic'
-import unit from './documents/unit'
-import week from './documents/week'
+import activity from './documents/activity';
+import unitSection from './documents/unitSection';
+import bridgeTopic from './documents/bridgeTopic';
+import unit from './documents/unit';
+import week from './documents/week';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -33,4 +33,4 @@ export default createSchema({
     unit,
     week,
   ]),
-})
+});

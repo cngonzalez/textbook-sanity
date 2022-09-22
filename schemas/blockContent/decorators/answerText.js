@@ -1,17 +1,20 @@
-import React from 'react'
-import { FaCheck } from 'react-icons/fa'
+import React from 'react';
+import { FaCheck } from 'react-icons/fa';
 
-const answerTextRender = props => (
-    <span style={
-        { color: '#d4609c' }}>{props.children}</span>
-  )
-  
+const answerTextRender = (props) => (
+  <span style={
+        { color: '#d4609c' }
+}
+  >
+    {props.children}
+  </span>
+);
 
 export default {
-    title: 'Answer Text',
-    value: 'answerText',
-    blockEditor: {
-        icon: FaCheck,
-        render: answerTextRender
-    }
-}
+  title: 'Answer Text',
+  value: 'answerText',
+  blockEditor: {
+    icon: FaCheck,
+    render: answerTextRender,
+  },
+};

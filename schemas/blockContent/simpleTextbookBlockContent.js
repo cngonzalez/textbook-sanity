@@ -1,5 +1,5 @@
 import * as annotations from './annotations';
-import * as decorators from './decorators';
+import { highlight } from './decorators';
 
 export default {
   name: 'textbookBlockContent',
@@ -12,8 +12,9 @@ export default {
       decorators: [
         { title: 'Strong', value: 'strong' },
         { title: 'Emphasis', value: 'em' },
-        ...Object.values(decorators),
+        highlight,
       ],
+      annotations: Object.values(annotations),
     },
     of: [
       {

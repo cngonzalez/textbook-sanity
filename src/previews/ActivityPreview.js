@@ -32,7 +32,7 @@ export function ActivityPreview({ document }) {
     }}
     >
       <div dangerouslySetInnerHTML={{ __html: createHTMLString(toPresent) }} />
-      { toPresent.digitalExercises.map(determineExercise) }
+      { (toPresent && toPresent.digitalExercises) && toPresent.digitalExercises.map(determineExercise) }
     </div>
   );
 }

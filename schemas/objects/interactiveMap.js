@@ -31,20 +31,20 @@ export default {
               title: 'Description',
               description: 'In-depth description of this location for usage in-map and in-text.',
               type: 'array',
-              of: [{type: 'block'}]
+              of: [{ type: 'block' }],
             },
-          ]
-        }
-      ]
-    }
+          ],
+        },
+      ],
+    },
   ],
-   preview: {
-     select: {
-        mapPoint0: 'mapPoints.0.name',
-     },
+  preview: {
+    select: {
+      mapPoint0: 'mapPoints.0.name',
+    },
     prepare({ mapPoint0 }) {
-      const title = mapPoint0 ? `Interactive Map: ${mapPoint0}...` : "Interactive Map"
-      return { title }
-    }
+      const title = mapPoint0 ? `Interactive Map: ${mapPoint0}...` : 'Interactive Map';
+      return { title };
+    },
   },
-}
+};
